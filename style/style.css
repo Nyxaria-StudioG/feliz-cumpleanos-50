@@ -1,0 +1,1097 @@
+/* =========================================
+   PALETA PRIMAVERAL CÁLIDA
+========================================= */
+
+:root {
+
+    /* Fondos */
+
+    --night: #1a0c0c;
+    --night-soft: #2a1515;
+
+
+    /* Colores principales */
+
+    --burgundy: #632f38;
+    --burgundy-light: #9b5960;
+
+
+    /* Primavera */
+
+    --rose: #c98788;
+    --peach: #e5a184;
+    --terracotta: #b96755;
+
+
+    /* Luz */
+
+    --champagne: #e8c9a3;
+    --cream: #f7eee3;
+    --white: #fff8f0;
+
+
+    /* Texto */
+
+    --silver: #eadbd1;
+
+
+    /* Tipografías */
+
+    --serif: "Cormorant Garamond", serif;
+    --script: "Great Vibes", cursive;
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--night);
+    color: var(--white);
+    font-family: var(--serif);
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   APERTURA
+========================================= */
+
+.opening {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(95, 57, 120, 0.35),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(150, 100, 170, 0.1),
+            transparent 30%
+        ),
+
+        var(--night);
+
+    transition:
+        opacity 1.5s ease,
+        visibility 1.5s ease;
+}
+
+
+.opening.hide {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   LUZ CENTRAL
+========================================= */
+
+.opening-glow {
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    border-radius: 50%;
+
+    background: rgba(110, 60, 140, 0.12);
+
+    filter: blur(70px);
+
+    animation: breathing 5s infinite ease-in-out;
+}
+
+
+@keyframes breathing {
+
+    0%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
+
+/* =========================================
+   APERTURA - TEXTO
+========================================= */
+
+.small-opening {
+
+    position: relative;
+
+    font-size: 0.75rem;
+
+    letter-spacing: 5px;
+
+    color: var(--silver);
+
+    margin-bottom: 20px;
+}
+
+
+.opening h1 {
+
+    position: relative;
+
+    font-family: var(--serif);
+
+    font-size: clamp(7rem, 25vw, 13rem);
+
+    line-height: 0.7;
+
+    font-weight: 300;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #a890b0,
+            #ffffff
+        );
+
+    background-size: 200%;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation: shimmer 6s infinite;
+}
+
+
+@keyframes shimmer {
+
+    0% {
+        background-position: 0%;
+    }
+
+    50% {
+        background-position: 100%;
+    }
+
+    100% {
+        background-position: 0%;
+    }
+}
+
+
+.opening-subtitle {
+
+    position: relative;
+
+    margin-top: 35px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.6;
+
+    color: var(--silver);
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   MARIPOSA DE APERTURA
+========================================= */
+
+.butterfly-opening {
+
+    position: absolute;
+
+    font-size: 2.5rem;
+
+    top: 20%;
+
+    left: 22%;
+
+    opacity: 0.7;
+
+    animation:
+        butterflyFloat 7s infinite ease-in-out,
+        butterflyGlow 4s infinite ease-in-out;
+}
+
+
+@keyframes butterflyFloat {
+
+    0%,
+    100% {
+        transform:
+            translate(0, 0)
+            rotate(-5deg);
+    }
+
+    50% {
+        transform:
+            translate(60px, -35px)
+            rotate(8deg);
+    }
+}
+
+
+@keyframes butterflyGlow {
+
+    0%,
+    100% {
+        filter:
+            drop-shadow(
+                0 0 4px rgba(200, 160, 220, 0.2)
+            );
+    }
+
+    50% {
+        filter:
+            drop-shadow(
+                0 0 18px rgba(200, 160, 220, 0.8)
+            );
+    }
+}
+
+
+/* =========================================
+   BOTÓN
+========================================= */
+
+.gift-button {
+
+    position: relative;
+
+    margin-top: 45px;
+
+    padding: 16px 30px;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    border: 1px solid rgba(220, 210, 230, 0.4);
+
+    color: var(--white);
+
+    font-family: var(--serif);
+
+    letter-spacing: 3px;
+
+    font-size: 0.8rem;
+
+    cursor: pointer;
+
+    transition:
+        background 0.4s ease,
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+.gift-button span {
+
+    color: var(--violet-light);
+
+    margin: 0 10px;
+}
+
+
+.gift-button:hover {
+
+    background: rgba(130, 80, 160, 0.2);
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 0 30px rgba(130, 80, 160, 0.3);
+}
+
+
+.touch {
+
+    margin-top: 15px;
+
+    font-size: 0.7rem;
+
+    letter-spacing: 2px;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   LLUVIA DE ESTRELLAS
+========================================= */
+
+.star-rain {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 900;
+
+    pointer-events: none;
+
+    overflow: hidden;
+}
+
+
+.star {
+
+    position: absolute;
+
+    width: 3px;
+
+    height: 3px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 8px #ffffff,
+        0 0 15px #caa6df;
+
+    animation:
+        starFall linear forwards;
+}
+
+
+@keyframes starFall {
+
+    0% {
+
+        transform:
+            translateY(-20px)
+            translateX(0)
+            scale(0.5);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(110vh)
+            translateX(120px)
+            scale(1);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================
+   CONTENIDO PRINCIPAL
+========================================= */
+
+.card-content {
+
+    position: relative;
+
+    max-width: 850px;
+
+    margin: auto;
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+    pointer-events: none;
+}
+
+
+.card-content.visible {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 100px 30px;
+}
+
+
+.hero-decoration {
+
+    color: var(--violet-light);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 30px;
+}
+
+
+.eyebrow {
+
+    font-size: 0.7rem;
+
+    letter-spacing: 5px;
+
+    color: var(--violet-light);
+}
+
+
+.hero h2 {
+
+    font-size: clamp(9rem, 30vw, 17rem);
+
+    font-weight: 300;
+
+    line-height: 0.7;
+
+    margin-top: 20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #ffffff,
+            #8d719b,
+            #ffffff
+        );
+
+    background-size: 200%;
+
+    background-clip: text;
+
+    color: transparent;
+
+    animation: shimmer 8s infinite;
+}
+
+
+.years {
+
+    letter-spacing: 12px;
+
+    margin-top: 35px;
+
+    font-size: 1rem;
+}
+
+
+.line {
+
+    width: 100px;
+
+    height: 1px;
+
+    background: var(--violet-light);
+
+    margin: 40px 0;
+}
+
+
+.hero-text {
+
+    font-size: 1.2rem;
+
+    line-height: 1.7;
+
+    color: var(--silver);
+
+    font-style: italic;
+}
+
+
+/* =========================================
+   SECCIONES GENERALES
+========================================= */
+
+section:not(.hero) {
+
+    padding: 130px 35px;
+
+    text-align: center;
+}
+
+
+.section-symbol {
+
+    font-size: 2rem;
+
+    color: var(--violet-light);
+
+    margin-bottom: 25px;
+}
+
+
+h3 {
+
+    font-family: var(--serif);
+
+    font-weight: 400;
+
+    font-size: clamp(2.2rem, 6vw, 4rem);
+
+    margin-bottom: 20px;
+}
+
+
+.message-section > p:first-of-type {
+
+    font-family: var(--script);
+
+    font-size: 2.4rem;
+
+    color: var(--violet-light);
+
+    margin-bottom: 45px;
+}
+
+
+.long-text {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    font-size: 1.1rem;
+
+    line-height: 2;
+
+    color: var(--silver);
+
+    white-space: pre-line;
+}
+
+
+/* =========================================
+   TANGO
+========================================= */
+
+.tango-section {
+
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(90, 50, 110, 0.35),
+            transparent 60%
+        );
+
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+.tango-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 600px;
+}
+
+
+.music-note {
+
+    font-family: var(--script);
+
+    font-size: 5rem;
+
+    color: var(--violet-light);
+
+    margin: 20px;
+}
+
+
+.tango-content p:not(.eyebrow):not(.highlight) {
+
+    font-size: 1.15rem;
+
+    line-height: 1.9;
+
+    color: var(--silver);
+
+    margin: 20px 0;
+}
+
+
+.highlight {
+
+    font-family: var(--script);
+
+    font-size: 4rem;
+
+    color: var(--white);
+
+    margin: 25px 0;
+}
+
+
+/* =========================================
+   SECCIÓN MARIPOSAS
+========================================= */
+
+.butterfly-section {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.butterfly-large {
+
+    font-size: 5rem;
+
+    margin-bottom: 30px;
+
+    animation:
+        butterflyFloat 8s infinite ease-in-out;
+}
+
+
+.butterfly-section p {
+
+    max-width: 560px;
+
+    margin: auto;
+
+    font-size: 1.15rem;
+
+    line-height: 2;
+
+    color: var(--silver);
+}
+
+
+/* =========================================
+   AGRADECIMIENTO
+========================================= */
+
+.thanks-section {
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent,
+            rgba(70, 40, 90, 0.15),
+            transparent
+        );
+}
+
+
+.ornament {
+
+    color: var(--violet-light);
+
+    letter-spacing: 10px;
+
+    margin-bottom: 40px;
+}
+
+
+.thanks-section h3 {
+
+    font-family: var(--script);
+
+    font-size: 5rem;
+
+    color: var(--violet-light);
+
+    margin: 20px;
+}
+
+
+.thanks-text {
+
+    max-width: 620px;
+
+    margin: auto;
+
+    font-size: 1.1rem;
+
+    line-height: 2;
+
+    color: var(--silver);
+
+    white-space: pre-line;
+}
+
+
+.signature-text {
+
+    font-family: var(--script);
+
+    font-size: 2rem;
+
+    color: var(--white);
+
+    margin-top: 50px;
+}
+
+
+/* =========================================
+   FINAL
+========================================= */
+
+.final-section {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(90, 50, 110, 0.3),
+            transparent 65%
+        );
+}
+
+
+.final-stars {
+
+    color: var(--violet-light);
+
+    font-size: 1.5rem;
+
+    margin-bottom: 30px;
+}
+
+
+.final-section h2 {
+
+    font-size: clamp(8rem, 25vw, 14rem);
+
+    font-weight: 300;
+
+    line-height: 0.8;
+
+    margin-top: 20px;
+}
+
+
+.final-title {
+
+    font-family: var(--script);
+
+    font-size: 4rem;
+
+    color: var(--violet-light);
+
+    margin-top: 20px;
+}
+
+
+.final-message {
+
+    max-width: 550px;
+
+    margin-top: 40px;
+
+    font-size: 1.15rem;
+
+    line-height: 1.9;
+
+    color: var(--silver);
+}
+
+
+.final-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background: var(--violet-light);
+
+    margin: 40px 0;
+}
+
+
+.final-love {
+
+    font-family: var(--script);
+
+    font-size: 2rem;
+}
+
+
+.final-butterfly {
+
+    font-size: 3rem;
+
+    margin-top: 50px;
+
+    animation:
+        butterflyFloat 7s infinite ease-in-out;
+}
+
+
+/* =========================================
+   MARIPOSAS FLOTANTES
+========================================= */
+
+.floating-butterfly {
+
+    position: absolute;
+
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+
+.butterfly-one {
+
+    top: 18%;
+
+    left: 5%;
+
+    animation:
+        butterflyFloat 9s infinite ease-in-out;
+}
+
+
+.butterfly-two {
+
+    top: 48%;
+
+    right: 5%;
+
+    font-size: 2rem;
+
+    animation:
+        butterflyFloat 11s ease-in-out infinite reverse;
+}
+
+
+.butterfly-three {
+
+    bottom: 10%;
+
+    left: 10%;
+
+    font-size: 1.5rem;
+
+    animation:
+        butterflyFloat 8s infinite ease-in-out;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .butterfly-opening {
+
+        left: 10%;
+
+        top: 15%;
+    }
+
+
+    .opening-subtitle {
+
+        font-size: 1rem;
+
+        padding: 0 20px;
+    }
+
+
+    .gift-button {
+
+        padding: 15px 20px;
+
+        letter-spacing: 2px;
+    }
+
+
+    section:not(.hero) {
+
+        padding: 100px 25px;
+    }
+
+
+    .thanks-section h3 {
+
+        font-size: 4rem;
+    }
+
+
+    .highlight {
+
+        font-size: 3.2rem;
+    }
+
+
+    .hero-text {
+
+        font-size: 1.05rem;
+    }
+
+
+    .long-text,
+    .thanks-text,
+    .butterfly-section p,
+    .final-message {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+    }
+
+
+    .final-title {
+
+        font-size: 3.5rem;
+    }
+
+
+    .final-love {
+
+        font-size: 1.8rem;
+    }
+}
+
+
+/* =========================================
+   PANTALLAS MUY PEQUEÑAS
+========================================= */
+
+@media (max-width: 380px) {
+
+    .opening h1 {
+
+        font-size: 6rem;
+    }
+
+
+    .hero h2 {
+
+        font-size: 7rem;
+    }
+
+
+    .thanks-section h3 {
+
+        font-size: 3.5rem;
+    }
+
+
+    .gift-button {
+
+        font-size: 0.7rem;
+
+        padding: 14px 15px;
+    }
+}
+
+
+/* =========================================
+   REDUCIR ANIMACIONES
+   (ACCESIBILIDAD)
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
